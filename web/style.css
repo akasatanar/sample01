@@ -1,3 +1,30 @@
 *{
     text-align: center;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow: hidden; */
+  }
+.title{
+    font-size:3rem;
+    margin: 0;
+}
+.tips{
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: 50;
+    margin-right: 2rem;
+}
+.list{
+    text-align: left;
+    font-size: 1.2rem;
+}
+.img{
+    width: 20%;
+}
+.img-par{
+    display: flex;
+    justify-content: space-evenly;
+}
