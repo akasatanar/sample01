@@ -1,0 +1,42 @@
+let snow=[];
+
+function preload(){
+  snowImg=loadImage("snowflake2.png");
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+  background(0);
+  snow.push(new SnowFlake());
+  for(let flake of snow){
+    flake.update();
+    flake.display();
+  }
+}
+
+class SnowFlake{
+  constructor(){                                            //各粒の動作制御
+    this.pos=createVector(random(width),random(-100,-10));  //生成位置
+    this.vel=createVector(random(-0.3,0.3),random(2,4.5));  //落下
+    this.acc=createVector(0,random(0,0.05));                //加速度
+    this.r=random(4,25);                                    //粒の大きさ
+    this.ang=0;
+  }
+  
+  update(){
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+    this.ang+=random(-2,2);
+    this.pos.x=this.pos.x+sin(this.ang*PI/180);
+  }
+  
+  display(){
+    // stroke("lightblue");
+    // strokeWeight(this.r);
+    // point(this.pos.x,this.pos.y);
+    image(snowImg,this.pos.x,this.pos.y,this.r,this.r);
+  }
+}
